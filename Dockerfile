@@ -1,6 +1,7 @@
 ﻿FROM ghcr.io/foundry-rs/foundry:latest
 
-EXPOSE 8545
+# Render uses PORT env var (default 10000)
+EXPOSE 
 
-# Use Render's PORT environment variable (important!)
-CMD ["anvil", "--fork-url", "https://eth.llamarpc.com", "--host", "0.0.0.0", "--port", "8545", "--chain-id", "31337", "--silent"]
+# Start Anvil using Render's PORT
+CMD ["sh", "-c", "anvil --fork-url https://eth.llamarpc.com --host 0.0.0.0 --port \ --chain-id 31337 --silent"]
